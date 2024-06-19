@@ -3,7 +3,7 @@ resource "proxmox_vm_qemu" "vm-cpuaud" {
   vmid        = var.vmid[count.index]
   name        = "i2-cpuaud-0${count.index + 1}"
   desc        = "vm cpuaud test terraform"
-  target_node = "hv_epyc-01"
+  target_node = "hv-epyc-01"
   scsihw      = "virtio-scsi-pci"
 
   automatic_reboot = true
@@ -28,7 +28,6 @@ resource "proxmox_vm_qemu" "vm-cpuaud" {
     }
   }
 
-  # cloudinit_cdrom_storage = "I2"
 
   network {
     model  = "virtio"
