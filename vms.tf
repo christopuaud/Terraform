@@ -7,13 +7,13 @@ ressource "proxmox_vm_qmu" "vm-tdupre" {
   scsihw      = "virtio-scsi-pci"
 
   automatic_reboot = true
-  clone            = "debian-bookworw-i2"
+  clone            = "debian-bookworm-i2"
   full_clon        = false
   disks {
     scsi {
       scsi0 {
         disk {
-          storage = "i2"
+          storage = "I2"
           size    = 10
           format  = "qcow2"
         }
