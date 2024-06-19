@@ -1,31 +1,31 @@
-variable "node_name"{
+variable "node_name" {
   description = "proxmox cluster nodes"
   type        = list(string)
-  default     = [
+  default = [
     "hv-epyc-01",
     "hv-epyc-02",
   ]
 }
 
-variable "vmid"{
+variable "vmid" {
   description = "VMs VMIDs"
   type        = list(string)
-  default     = [
+  default = [
     "5022",
     "5023",
   ]
 }
 
-variable "ipaddresses"{
+variable "ipaddresses" {
   description = "VMs IP addresses"
   type        = list(string)
-  default     = [
+  default = [
     "172.16.152.22",
     "172.16.152.23",
   ]
 }
 
-variable "cidr"{
+variable "cidr" {
   description = "CIDR VLAN LABO"
   default     = "16"
 }
