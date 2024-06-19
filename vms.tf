@@ -31,5 +31,9 @@ ressource "proxmox_vm_qmu" "vm-tdupre" {
   cores = 1
   memory = 1024
   os_type = "cloud-init"
-
+  ciuser  = "chris"
+  sshkeys = <<EOF
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAVQR9xqy6J0EC4CUs4ReKLQA48XHZwAY/tKkvhadiLS chris@raspberrypiChris
+EOF
+  ipconfig0 = "ip=${var.ipaddresses[count.index]}/${var.cidr},gw=172.16.255.254"
 }
