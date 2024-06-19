@@ -27,4 +27,9 @@ ressource "proxmox_vm_qmu" "vm-tdupre" {
     bridge = "vmbr0"
   }
 
+  cpu = "kvm64"
+  cores = 1
+  memory = 1024
+  os_type = "cloud-init"
+
 }
