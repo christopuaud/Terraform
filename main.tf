@@ -9,6 +9,6 @@ terraform {
 
 provider "proxmox" {
   pm_tls_insecure = true
-  pm_api_url      = "https://proxmox.labo.loc/ap12/json"
+  pm_api_url      = "https://proxmox.labo.loc/api2/json"
   pm_parallel     = "2"
 }

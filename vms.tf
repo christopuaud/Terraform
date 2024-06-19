@@ -1,4 +1,4 @@
-ressource "proxmox_vm_qemu" "vm-cpuaud" {
+resource "proxmox_vm_qemu" "vm-cpuaud" {
   count       = 2
   vmid        = var.vmid[count.index]
   name        = "i2-cpuaud-0${count.index + 1}"
@@ -8,7 +8,7 @@ ressource "proxmox_vm_qemu" "vm-cpuaud" {
 
   automatic_reboot = true
   clone            = "debian-bookworm-i2"
-  full_clon        = false
+  full_clone       = false
   disks {
     scsi {
       scsi0 {
@@ -19,8 +19,16 @@ ressource "proxmox_vm_qemu" "vm-cpuaud" {
         }
       }
     }
+    ide {
+      ide3 {
+        cloudinit {
+          storage = "I2"
+        }
+      }
+    }
   }
-  cloudinit_cdrom_storage = "I2"
+
+  # cloudinit_cdrom_storage = "I2"
 
   network {
     model  = "virtio"
