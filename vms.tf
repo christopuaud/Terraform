@@ -1,8 +1,8 @@
-ressource "proxmox_vm_qmu" "vm-tdupre" {
+ressource "proxmox_vm_qemu" "vm-cpuaud" {
   count       = 2
   vmid        = var.vmid[count.index]
-  name        = "i2-tdupre-0${count.index + 1}"
-  desc        = "vm tdupre test terraform"
+  name        = "i2-cpuaud-0${count.index + 1}"
+  desc        = "vm cpuaud test terraform"
   target_node = "hv_epyc-01"
   scsihw      = "virtio-scsi-pci"
 
