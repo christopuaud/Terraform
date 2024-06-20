@@ -1,9 +1,9 @@
 resource "proxmox_vm_qemu" "vm-cpuaud" {
   count       = 2
   vmid        = var.vmid[count.index]
-  name        = "i2-cpuaud-0${count.index + 1}"
+  name        = var.vmname[count.index]
   desc        = "vm cpuaud test terraform"
-  target_node = "hv-epyc-01"
+  target_node = var.node_name[count.index]
   scsihw      = "virtio-scsi-pci"
 
   automatic_reboot = true
@@ -14,7 +14,7 @@ resource "proxmox_vm_qemu" "vm-cpuaud" {
       scsi0 {
         disk {
           storage = "I2"
-          size    = 10
+          size    = 15
           format  = "qcow2"
         }
       }
@@ -34,9 +34,9 @@ resource "proxmox_vm_qemu" "vm-cpuaud" {
     bridge = "vmbr0"
   }
 
-  cpu       = "kvm64"
-  cores     = 1
-  memory    = 1024
+  cpu       = "x86-64-v2-AES"
+  cores     = 2
+  memory    = 4096
   os_type   = "cloud-init"
   ciuser    = "chris"
   sshkeys   = <<EOF

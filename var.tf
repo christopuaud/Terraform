@@ -29,3 +29,12 @@ variable "cidr" {
   description = "CIDR VLAN LABO"
   default     = "16"
 }
+
+variable "vmname"{
+  description = "VMs names"
+  type        = list(string)
+  default = [
+    "i2-cpuaud-controlPlan",
+    "i2-cpuaud-worker",
+  ]
+}
